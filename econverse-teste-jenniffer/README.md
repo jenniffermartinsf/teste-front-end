@@ -38,17 +38,17 @@ O projeto foi organizado dentro de `src` com separação clara de responsabilida
 
 ## Screenshots
 
-<img src="./docs/screenshots/ec1.png" alt="Screenshot 1" />
+![Screenshot 1](docs/screenshots/ec1.png)
 
-<img src="./docs/screenshots/ec2.png" alt="Screenshot 2" />
+![Screenshot 2](docs/screenshots/ec2.png)
 
-<img src="./docs/screenshots/ec3.png" alt="Screenshot 3" />
+![Screenshot 3](docs/screenshots/ec3.png)
 
-<img src="./docs/screenshots/ec4.png" alt="Screenshot 4" />
+![Screenshot 4](docs/screenshots/ec4.png)
 
-<img src="./docs/screenshots/ec5.png" alt="Screenshot 5" />
+![Screenshot 5](docs/screenshots/ec5.png)
 
-<img src="./docs/screenshots/ec6.png" alt="Screenshot 6" />
+![Screenshot 6](docs/screenshots/ec6.png)
 
 ## Como rodar
 
