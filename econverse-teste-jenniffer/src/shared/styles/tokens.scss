@@ -1,0 +1,38 @@
+:root {
+  --color-background: #ffffff;
+  --color-background-muted: #f4f4f4;
+  --color-surface: #ffffff;
+  --color-surface-alt: #f8f8f8;
+  --color-border: #dedede;
+  --color-border-strong: #bdbdbd;
+  --color-text: #3f3f40;
+  --color-text-muted: #9f9f9f;
+  --color-text-subtle: #676767;
+  --color-heading: #271c47;
+  --color-primary: #3442b5;
+  --color-primary-dark: #271c47;
+  --color-accent: #f7ca11;
+  --color-accent-strong: #ffc400;
+  --color-success: #4caf50;
+  --color-overlay: rgba(0, 0, 0, 0.52);
+  --shadow-soft: 0 4px 14px rgba(0, 0, 0, 0.08);
+  --shadow-card: 0 8px 24px rgba(0, 0, 0, 0.08);
+  --shadow-brand: 0 7px 20px rgba(0, 0, 0, 0.13);
+  --radius-card: 12px;
+  --radius-button: 8px;
+  --radius-pill: 999px;
+  --container-width: min(1280px, calc(100vw - 40px));
+  --container-width-wide: min(1364px, calc(100vw - 32px));
+  --transition-base: 180ms ease;
+  --transition-slow: 260ms ease;
+  --font-display: 'Outfit', sans-serif;
+  --font-heading: 'Poppins', sans-serif;
+  --font-body: 'Work Sans', sans-serif;
+}
+
+@media (max-width: 767px) {
+  :root {
+    --container-width: calc(100vw - 32px);
+    --container-width-wide: calc(100vw - 24px);
+  }
+}

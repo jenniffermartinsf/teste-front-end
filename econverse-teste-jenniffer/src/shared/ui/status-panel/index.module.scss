@@ -1,0 +1,30 @@
+.panel {
+  align-items: center;
+  background: linear-gradient(180deg, #ffffff 0%, #fafafa 100%);
+  border: 1px solid rgba(222, 222, 222, 0.9);
+  border-radius: 18px;
+  color: var(--color-text);
+  display: grid;
+  gap: 10px;
+  justify-items: center;
+  min-height: 240px;
+  padding: 32px 24px;
+  text-align: center;
+}
+
+.title {
+  color: var(--color-heading);
+  font-family: var(--font-heading);
+  font-size: 20px;
+}
+
+.description {
+  color: var(--color-text-muted);
+  font-size: 15px;
+  line-height: 1.5;
+  max-width: 360px;
+}
+
+.action {
+  margin-top: 8px;
+}
