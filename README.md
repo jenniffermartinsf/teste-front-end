@@ -36,20 +36,6 @@ O projeto foi organizado dentro de `src` com separação clara de responsabilida
 - ESLint e Prettier configurados
 - Testes de regra de negócio, hook e componentes críticos
 
-## Screenshots
-
-![Screenshot 1](docs/screenshots/ec1.png)
-
-![Screenshot 2](docs/screenshots/ec2.png)
-
-![Screenshot 3](docs/screenshots/ec3.png)
-
-![Screenshot 4](docs/screenshots/ec4.png)
-
-![Screenshot 5](docs/screenshots/ec5.png)
-
-![Screenshot 6](docs/screenshots/ec6.png)
-
 ## Como rodar
 
 1. Instale as dependências:
