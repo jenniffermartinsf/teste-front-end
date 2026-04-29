@@ -11,7 +11,6 @@
 
 .header {
   background: #ffffff;
-  border-bottom: 1px solid rgba(34, 34, 34, 0.12);
   position: sticky;
   top: 0;
   z-index: 20;
@@ -24,6 +23,7 @@
 
 .topBar {
   align-items: center;
+  border-bottom: 1px solid rgba(34, 34, 34, 0.08);
   display: flex;
   gap: 36px;
   justify-content: center;
@@ -37,12 +37,14 @@
 }
 
 .benefitIcon {
-  color: var(--color-primary);
+  display: block;
   flex-shrink: 0;
+  height: 20px;
+  width: 20px;
 }
 
 .benefitText {
-  color: var(--color-text);
+  color: var(--color-text-muted);
   font-size: 12px;
   font-weight: 500;
 }
@@ -55,13 +57,13 @@
 .mainBar {
   align-items: center;
   display: grid;
-  gap: 24px;
-  grid-template-columns: auto minmax(0, 1fr) auto;
+  grid-template-columns: 139px 186px minmax(0, 630px) 109px auto;
   min-height: 72px;
 }
 
 .logoLink {
   display: inline-flex;
+  grid-column: 1;
 }
 
 .logo {
@@ -71,9 +73,10 @@
 
 .searchForm {
   align-items: center;
-  background: var(--color-surface-alt);
+  background: #f6f5f2;
   border-radius: 10px;
   display: flex;
+  grid-column: 3;
   min-height: 48px;
   padding: 0 16px 0 20px;
 }
@@ -81,32 +84,38 @@
 .searchInput {
   background: transparent;
   border: 0;
-  color: var(--color-text);
+  color: #9f9f9f;
   flex: 1;
   font-family: var(--font-heading);
   font-size: 14px;
   outline: none;
 
   &::placeholder {
-    color: var(--color-text-subtle);
+    color: #9f9f9f;
   }
 }
 
 .searchButton {
   align-items: center;
-  color: var(--color-primary);
+  color: var(--color-text-muted);
   display: inline-flex;
   justify-content: center;
+
+  svg {
+    height: 28px;
+    width: 28px;
+  }
 }
 
 .utilityBar {
   display: flex;
-  gap: 14px;
+  gap: 32px;
+  grid-column: 5;
 }
 
 .utilityButton {
   align-items: center;
-  color: var(--color-heading);
+  color: var(--color-text-muted);
   display: inline-flex;
   justify-content: center;
   min-height: 32px;
@@ -115,6 +124,13 @@
 
   &:hover {
     color: var(--color-primary);
+  }
+
+  img,
+  svg {
+    display: block;
+    height: 24px;
+    width: 24px;
   }
 }
 
@@ -136,43 +152,51 @@
 }
 
 .navigationBar {
+  background: #ffffff;
   border-top: 1px solid rgba(34, 34, 34, 0.08);
+  box-shadow: 0 8px 16px rgba(57, 48, 19, 0.12);
   min-height: 40px;
+  position: relative;
+  z-index: 1;
 }
 
 .navigationList {
   align-items: center;
   display: flex;
-  gap: 28px;
+  justify-content: space-between;
+  margin: 0 auto;
   min-height: 40px;
+  width: min(1141px, 100%);
 }
 
 .navigationLink,
 .membershipLink {
-  color: var(--color-text);
+  color: var(--color-text-muted);
   font-family: var(--font-heading);
-  font-size: 14px;
-  font-weight: 500;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  text-transform: uppercase;
 
   &:hover {
     color: var(--color-primary);
   }
 }
 
-.membershipItem {
-  margin-left: auto;
+.navigationLinkActive {
+  color: var(--color-primary);
 }
 
 .membershipLink {
   align-items: center;
-  color: var(--color-primary);
   display: inline-flex;
   gap: 8px;
-  font-weight: 700;
 }
 
 .membershipIcon {
-  color: var(--color-accent);
+  display: block;
+  height: 20px;
+  width: 20px;
 }
 
 .hero {
@@ -204,8 +228,9 @@
 }
 
 .heroContent {
-  display: grid;
-  gap: 12px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
   margin: 0 auto;
   max-width: var(--container-width);
   padding-top: 78px;
@@ -213,35 +238,43 @@
 }
 
 .heroEyebrow {
-  color: var(--color-accent);
+  color: #ffffff;
   font-family: var(--font-heading);
-  font-size: 28px;
+  font-size: 32px;
+  font-weight: 400;
+  line-height: 1.5;
+  margin-bottom: 41px;
+}
+
+.heroEyebrowHighlight {
+  color: var(--color-accent);
   font-weight: 700;
 }
 
 .heroTitle {
   color: #ffffff;
   font-family: var(--font-heading);
-  font-size: clamp(38px, 5vw, 60px);
-  font-weight: 700;
-  line-height: 1.08;
-  max-width: 560px;
+  font-size: 48px;
+  font-weight: 600;
+  line-height: 50px;
+  margin-bottom: 18px;
+  max-width: 822px;
 }
 
 .heroButton {
   align-items: center;
   background: var(--color-accent);
-  border-radius: 8px;
+  border-radius: 5px;
   color: var(--color-heading);
   display: inline-flex;
   font-family: var(--font-heading);
   font-size: 16px;
-  font-weight: 700;
+  font-weight: 600;
   justify-content: center;
-  margin-top: 18px;
+  margin-left: 6px;
   min-height: 50px;
-  padding: 0 40px;
-  width: fit-content;
+  min-width: 206px;
+  padding: 7px 49px;
 
   &:hover {
     transform: translateY(-1px);
@@ -252,61 +285,89 @@
 .partnerSection,
 .brandSection {
   margin: 0 auto;
-  width: var(--container-width);
+}
+
+.categorySection {
+  margin-bottom: 18px;
+  margin-top: -33px;
+  width: min(1160px, calc(100vw - 32px));
+}
+
+.partnerSection {
+  width: min(1281px, calc(100vw - 40px));
+}
+
+.brandSection {
+  width: min(1250px, calc(100vw - 40px));
 }
 
 .categoryGrid {
-  display: grid;
-  gap: 22px;
-  grid-template-columns: repeat(7, minmax(0, 1fr));
+  display: flex;
+  gap: 42px;
+  justify-content: space-between;
 }
 
-.categoryCard,
-.categoryCardFeatured {
+.categoryCard {
   align-items: center;
-  background: var(--color-background-muted);
-  border-radius: 10px;
-  box-shadow: 0 4px 11px rgba(0, 0, 0, 0.13);
   display: grid;
   gap: 22px;
   justify-items: center;
   min-height: 171px;
-  padding: 24px 18px 20px;
 }
 
-.categoryCardFeatured {
-  background: #ffffff;
-}
-
-.categoryMedia {
+.categoryTile,
+.categoryTileFeatured {
   align-items: center;
+  background: var(--color-background-muted);
+  border-radius: 10px;
+  box-shadow: 0 4px 11px rgba(0, 0, 0, 0.13);
   display: flex;
+  height: 128px;
   justify-content: center;
-  min-height: 82px;
+  width: 128px;
+}
+
+.categoryTileFeatured {
+  background: #ffffff;
+  box-shadow: 0 2px 9px rgba(0, 0, 0, 0.22);
 }
 
 .categoryLabel {
-  color: var(--color-text);
+  color: #4e4e4e;
   font-family: var(--font-heading);
   font-size: 14px;
   font-weight: 500;
+  line-height: 1.5;
+  text-align: center;
+}
+
+.categoryLabelFeatured {
+  color: var(--color-primary);
+  font-family: var(--font-heading);
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 1.5;
   text-align: center;
 }
 
 .partnerGrid {
   display: grid;
-  gap: 14px;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 13px;
+  grid-template-columns: repeat(2, minmax(0, 634px));
+  justify-content: center;
 }
 
 .partnerCard {
   border-radius: 20px;
-  min-height: 350px;
+  height: 350px;
+  max-width: 634px;
   overflow: hidden;
   position: relative;
+  width: 100%;
 }
 
 .partnerBackground {
+  display: block;
   height: 100%;
   object-fit: cover;
   width: 100%;
@@ -372,23 +433,28 @@
 
 .brandGrid {
   display: grid;
-  gap: 22px;
-  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 42px;
+  grid-template-columns: repeat(5, 211px);
+  justify-content: center;
+  margin: 0 auto;
+  width: 1223px;
 }
 
 .brandCard {
-  align-items: center;
+  align-items: flex-start;
   background: #ffffff;
-  border-radius: 999px;
+  border-radius: 50%;
   box-shadow: var(--shadow-brand);
   display: flex;
-  justify-content: center;
-  min-height: 211px;
-  padding: 24px;
+  flex: 0 0 211px;
+  height: 211px;
+  justify-content: flex-start;
+  padding: 87px 47px;
+  width: 211px;
 }
 
 .brandLogo {
-  height: 35px;
+  height: 34.764px;
   width: 117px;
 }
 
@@ -401,17 +467,20 @@
   background: var(--color-primary-dark);
   color: #ffffff;
   display: grid;
-  gap: 24px;
-  grid-template-columns: 1fr auto;
+  gap: 124px;
+  grid-template-columns: 515px 639px;
+  justify-content: space-between;
   margin: 0 auto;
   min-height: 162px;
-  padding: 40px 0;
-  width: var(--container-width);
+  max-width: 1440px;
+  padding: 40px 82px 40px 80px;
+  width: 100%;
 }
 
 .newsletterCopy {
   display: grid;
   gap: 8px;
+  width: 515px;
 }
 
 .newsletterTitle {
@@ -419,13 +488,17 @@
   font-family: var(--font-display);
   font-size: 32px;
   font-weight: 600;
+  line-height: 38.4px;
+  max-width: 463px;
 }
 
 .newsletterDescription {
   color: #ffffff;
+  font-family: var(--font-heading);
   font-size: 14px;
-  line-height: 1.4;
-  max-width: 515px;
+  font-weight: 300;
+  line-height: 18px;
+  width: 515px;
 }
 
 .footerContent {
@@ -435,7 +508,7 @@
   grid-template-columns: 354px 1px minmax(0, 1fr);
   margin: 0 auto;
   padding: 42px 0;
-  width: var(--container-width);
+  width: min(1280px, calc(100vw - 160px));
 }
 
 .footerBrand {
@@ -450,14 +523,16 @@
 
 .footerText,
 .footerBottom {
-  color: var(--color-text);
+  color: rgba(34, 34, 34, 0.71);
+  font-family: var(--font-body);
   font-size: 14px;
+  font-weight: 400;
   line-height: 1.5;
 }
 
 .socialLinks {
   display: flex;
-  gap: 18px;
+  gap: 26px;
 }
 
 .socialLink {
@@ -487,6 +562,7 @@
   font-family: var(--font-heading);
   font-size: 16px;
   font-weight: 700;
+  line-height: 1;
 }
 
 .footerList {
@@ -496,7 +572,10 @@
 
 .footerLink {
   color: rgba(34, 34, 34, 0.71);
+  font-family: var(--font-heading);
   font-size: 14px;
+  font-weight: 400;
+  line-height: 16px;
 
   &:hover {
     color: var(--color-primary);
@@ -505,22 +584,47 @@
 
 .footerBottom {
   background: #ffffff;
-  font-size: 13px;
+  font-size: 14px;
   padding: 14px 24px;
   text-align: center;
 }
 
+@media (max-width: 1439px) {
+  .newsletterSection {
+    gap: 48px;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 639px);
+    padding-inline: 40px;
+  }
+
+  .newsletterCopy,
+  .newsletterDescription {
+    width: 100%;
+  }
+
+  .footerContent {
+    width: min(1280px, calc(100vw - 80px));
+  }
+}
+
 @media (max-width: 1199px) {
   .categoryGrid {
-    grid-template-columns: repeat(4, minmax(0, 1fr));
+    flex-wrap: wrap;
+    justify-content: center;
   }
 
   .brandGrid {
-    grid-template-columns: repeat(3, minmax(0, 1fr));
+    width: 100%;
   }
 
   .newsletterSection {
+    gap: 32px;
     grid-template-columns: 1fr;
+    padding-inline: 40px;
+  }
+
+  .newsletterCopy,
+  .newsletterDescription {
+    width: 100%;
   }
 }
 
@@ -543,11 +647,19 @@
   }
 
   .logoLink {
+    grid-column: auto;
     justify-self: center;
   }
 
+  .searchForm {
+    grid-column: auto;
+    width: 100%;
+  }
+
   .utilityBar {
+    grid-column: auto;
     justify-content: center;
+    width: 100%;
   }
 
   .navigationList {
@@ -555,14 +667,18 @@
     gap: 14px 20px;
     justify-content: center;
     padding: 12px 0;
-  }
-
-  .membershipItem {
-    margin-left: 0;
+    width: 100%;
   }
 
   .partnerGrid {
     grid-template-columns: 1fr;
+    justify-items: center;
+  }
+
+  .brandGrid {
+    gap: 28px;
+    grid-template-columns: repeat(3, 211px);
+    width: 100%;
   }
 
   .footerContent {
@@ -586,11 +702,20 @@
   }
 
   .topBar {
-    gap: 8px 18px;
+    display: grid;
+    gap: 8px 24px;
+    grid-template-columns: repeat(2, max-content);
+    justify-content: center;
+    padding-inline: 16px;
   }
 
   .benefit {
-    width: 100%;
+    width: auto;
+  }
+
+  .benefit:last-child {
+    grid-column: 1 / -1;
+    justify-self: center;
   }
 
   .hero {
@@ -603,29 +728,40 @@
 
   .heroEyebrow {
     font-size: 22px;
+    margin-bottom: 28px;
   }
 
   .heroTitle {
+    font-size: 34px;
+    line-height: 1.08;
+    margin-bottom: 12px;
     max-width: 320px;
   }
 
   .heroButton {
+    margin-left: 0;
     min-height: 46px;
+    min-width: 176px;
     padding-inline: 28px;
   }
 
   .categoryGrid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 18px;
   }
 
-  .categoryCard,
-  .categoryCardFeatured {
-    min-height: 150px;
-    padding: 18px 14px;
+  .categoryCard {
+    gap: 16px;
+    min-height: 144px;
+  }
+
+  .categoryTile,
+  .categoryTileFeatured {
+    height: 112px;
+    width: 112px;
   }
 
   .partnerCard {
-    min-height: 300px;
+    height: 300px;
   }
 
   .partnerContent {
@@ -642,16 +778,35 @@
     margin-bottom: 24px;
   }
 
-  .brandGrid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
+  .brandCard {
+    flex-basis: 160px;
+    height: 160px;
+    padding: 63px 35px;
+    width: 160px;
   }
 
-  .brandCard {
-    min-height: 160px;
+  .brandGrid {
+    gap: 20px;
+    grid-template-columns: repeat(2, 160px);
+  }
+
+  .brandLogo {
+    height: 26px;
+    width: 90px;
+  }
+
+  .newsletterSection {
+    padding-inline: 16px;
+  }
+
+  .newsletterCopy,
+  .newsletterDescription {
+    width: 100%;
   }
 
   .newsletterTitle {
     font-size: 28px;
+    max-width: none;
   }
 
   .footerColumns {

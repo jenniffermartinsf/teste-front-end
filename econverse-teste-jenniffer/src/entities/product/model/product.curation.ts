@@ -1,7 +1,7 @@
 import type { Product, ProductShelfTabId } from './product.types'
 
 const curatedIndexes: Record<ProductShelfTabId, readonly number[]> = {
-  cellphones: [0, 1, 2, 3],
+  cellphones: [0, 1, 2, 3, 4],
   accessories: [2, 4, 6, 8],
   tablets: [1, 3, 5, 7],
   notebooks: [0, 4, 5, 9],

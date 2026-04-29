@@ -26,6 +26,7 @@ interface ProductShelfProps {
   catalogState: AsyncState<Product[]>
   onRetry: () => void
   onSelectProduct: (product: Product) => void
+  showViewAll?: boolean
   showTabs?: boolean
   title: string
 }
@@ -48,6 +49,7 @@ export const ProductShelf = ({
   catalogState,
   onRetry,
   onSelectProduct,
+  showViewAll = false,
   showTabs = false,
   title,
 }: ProductShelfProps) => {
@@ -75,14 +77,6 @@ export const ProductShelf = ({
     setCurrentPage(0)
   }
 
-  const handleViewAll = (): void => {
-    if (showTabs) {
-      setActiveTabId('all')
-    }
-
-    setCurrentPage(0)
-  }
-
   const handlePreviousPage = (): void => {
     setCurrentPage((page) => Math.max(page - 1, 0))
   }
@@ -104,13 +98,11 @@ export const ProductShelf = ({
         <span className={styles.rule} />
         <div className={styles.titleGroup}>
           <h2 className={styles.title}>{title}</h2>
-          <button
-            className={styles.viewAll}
-            onClick={handleViewAll}
-            type="button"
-          >
-            Ver todos
-          </button>
+          {showViewAll ? (
+            <button className={styles.viewAll} type="button">
+              Ver todos
+            </button>
+          ) : null}
         </div>
         <span className={styles.rule} />
       </header>
@@ -135,7 +127,7 @@ export const ProductShelf = ({
         ) : null}
         {catalogState.status === 'success' ? (
           <>
-            {!compactViewport && pageCount > 1 ? (
+            {!compactViewport && (showTabs || pageCount > 1) ? (
               <div className={styles.controls}>
                 <Button
                   aria-label="Página anterior"

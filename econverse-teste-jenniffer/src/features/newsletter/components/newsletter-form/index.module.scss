@@ -1,13 +1,14 @@
 .form {
   display: grid;
-  gap: 10px;
+  gap: 8px;
+  width: 639px;
 }
 
 .fields {
   align-items: start;
   display: grid;
   gap: 8px;
-  grid-template-columns: minmax(0, 233px) minmax(0, 233px) auto;
+  grid-template-columns: 233px 233px 157px;
 }
 
 .fieldGroup {
@@ -27,21 +28,28 @@
 
 .submit {
   align-self: start;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 600;
   min-height: 42px;
-  padding-inline: 34px;
+  padding-inline: 0;
+  width: 157px;
 }
 
 .feedbackRow {
   display: grid;
-  gap: 6px;
+  gap: 4px;
 }
 
 .checkboxLabel {
   align-items: center;
   color: #ffffff;
   display: inline-flex;
+  font-family: var(--font-heading);
   font-size: 14px;
-  gap: 6px;
+  font-weight: 400;
+  gap: 4px;
+  line-height: 1.5;
   position: relative;
   width: fit-content;
 }
@@ -92,7 +100,21 @@
   color: #fff4b0;
 }
 
+@media (max-width: 1439px) {
+  .form {
+    width: 100%;
+  }
+
+  .fields {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) 157px;
+  }
+}
+
 @media (max-width: 1023px) {
+  .form {
+    width: 100%;
+  }
+
   .fields {
     grid-template-columns: minmax(0, 1fr);
   }

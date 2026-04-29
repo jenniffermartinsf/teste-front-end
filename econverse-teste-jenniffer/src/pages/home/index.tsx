@@ -6,13 +6,14 @@ import { NewsletterForm } from '@/features/newsletter/components/newsletter-form
 import { ProductModal } from '@/features/product-modal/components/product-modal'
 import { ProductShelf } from '@/features/product-shelf/components/product-shelf'
 import { assetCatalog } from '@/shared/config/media'
+import { classNames } from '@/shared/lib/class-names'
 
 import {
   categoryItems,
   footerColumns,
   headerBenefits,
   headerSearchIcon,
-  membershipIcon,
+  membershipAction,
   partnerBanners,
   primaryNavigation,
   utilityActions,
@@ -41,7 +42,6 @@ const SocialLink = ({
 
 const HeaderSection = () => {
   const SearchIcon = headerSearchIcon
-  const MembershipIcon = membershipIcon
   const handleSearchSubmit = (
     event: React.SyntheticEvent<HTMLFormElement>,
   ): void => {
@@ -52,22 +52,29 @@ const HeaderSection = () => {
     <header className={styles.header}>
       <div className={styles.headerInner}>
         <div className={styles.topBar}>
-          {headerBenefits.map(({ icon: Icon, text, highlightedText }) => (
-            <div
-              className={styles.benefit}
-              key={`${text}-${highlightedText ?? 'default'}`}
-            >
-              <Icon className={styles.benefitIcon} />
-              <span className={styles.benefitText}>
-                {text}{' '}
-                {highlightedText ? (
+          {headerBenefits.map(
+            ({ iconSrc, textPrefix, highlightedText, textSuffix }) => (
+              <div
+                className={styles.benefit}
+                key={`${textPrefix ?? 'highlight'}-${highlightedText}-${textSuffix ?? 'default'}`}
+              >
+                <img
+                  alt=""
+                  className={styles.benefitIcon}
+                  height="20"
+                  src={iconSrc}
+                  width="20"
+                />
+                <span className={styles.benefitText}>
+                  {textPrefix ? <span>{textPrefix} </span> : null}
                   <strong className={styles.benefitHighlight}>
                     {highlightedText}
                   </strong>
-                ) : null}
-              </span>
-            </div>
-          ))}
+                  {textSuffix ? <span>{` ${textSuffix}`}</span> : null}
+                </span>
+              </div>
+            ),
+          )}
         </div>
         <div className={styles.mainBar}>
           <a className={styles.logoLink} href="#home">
@@ -97,14 +104,14 @@ const HeaderSection = () => {
             </button>
           </form>
           <div className={styles.utilityBar}>
-            {utilityActions.map(({ icon: Icon, label, badge }) => (
+            {utilityActions.map(({ iconSrc, label, badge }) => (
               <button
                 aria-label={label}
                 className={styles.utilityButton}
                 key={label}
                 type="button"
               >
-                <Icon />
+                <img alt="" height="24" src={iconSrc} width="24" />
                 {badge ? (
                   <span className={styles.utilityBadge}>{badge}</span>
                 ) : null}
@@ -120,7 +127,10 @@ const HeaderSection = () => {
             {primaryNavigation.map((item) => (
               <li key={item}>
                 <a
-                  className={styles.navigationLink}
+                  className={classNames(
+                    styles.navigationLink,
+                    item === 'Ofertas do dia' && styles.navigationLinkActive,
+                  )}
                   href="#produtos-relacionados"
                 >
                   {item}
@@ -129,8 +139,14 @@ const HeaderSection = () => {
             ))}
             <li className={styles.membershipItem}>
               <a className={styles.membershipLink} href="#newsletter">
-                <MembershipIcon className={styles.membershipIcon} />
-                Assinatura
+                <img
+                  alt=""
+                  className={styles.membershipIcon}
+                  height="20"
+                  src={membershipAction.iconSrc}
+                  width="20"
+                />
+                {membershipAction.label}
               </a>
             </li>
           </ul>
@@ -153,8 +169,11 @@ const HeroSection = ({ onPrimaryAction }: { onPrimaryAction: () => void }) => (
       <div className={styles.heroOverlay} />
     </div>
     <div className={styles.heroContent}>
-      <p className={styles.heroEyebrow}>50% Off nos produtos</p>
       <h1 className={styles.heroTitle}>Venha conhecer nossas promoções</h1>
+      <p className={styles.heroEyebrow}>
+        <span className={styles.heroEyebrowHighlight}>50% Off</span>{' '}
+        <span>nos produtos</span>
+      </p>
       <button
         className={styles.heroButton}
         onClick={onPrimaryAction}
@@ -170,16 +189,23 @@ const CategorySection = () => (
   <section className={styles.categorySection}>
     <div className={styles.categoryGrid}>
       {categoryItems.map((item) => (
-        <article
-          className={
-            item.featured ? styles.categoryCardFeatured : styles.categoryCard
-          }
-          key={item.id}
-        >
-          <div className={styles.categoryMedia}>
+        <article className={styles.categoryCard} key={item.id}>
+          <div
+            className={
+              item.featured ? styles.categoryTileFeatured : styles.categoryTile
+            }
+          >
             <img alt="" height="61" src={item.imageUrl} width="61" />
           </div>
-          <strong className={styles.categoryLabel}>{item.label}</strong>
+          <strong
+            className={
+              item.featured
+                ? styles.categoryLabelFeatured
+                : styles.categoryLabel
+            }
+          >
+            {item.label}
+          </strong>
         </article>
       ))}
     </div>
@@ -255,17 +281,17 @@ const FooterSection = () => (
         </p>
         <div className={styles.socialLinks}>
           <SocialLink
-            href="https://www.instagram.com"
+            href="https://www.instagram.com/econverse.ag"
             icon={assetCatalog.footerSocial.instagram}
             label="Instagram"
           />
           <SocialLink
-            href="https://www.facebook.com"
+            href="https://www.facebook.com/agenciaeconverse"
             icon={assetCatalog.footerSocial.facebook}
             label="Facebook"
           />
           <SocialLink
-            href="https://www.linkedin.com"
+            href="https://www.linkedin.com/company/econverse/"
             icon={assetCatalog.footerSocial.linkedin}
             label="LinkedIn"
           />
@@ -326,6 +352,7 @@ const HomePage = () => {
             catalogState={catalogState}
             onRetry={retry}
             onSelectProduct={setSelectedProduct}
+            showViewAll
             title="Produtos relacionados"
           />
           <PartnerBannersSection />
@@ -335,6 +362,7 @@ const HomePage = () => {
             catalogState={catalogState}
             onRetry={retry}
             onSelectProduct={setSelectedProduct}
+            showViewAll
             title="Produtos relacionados"
           />
         </main>

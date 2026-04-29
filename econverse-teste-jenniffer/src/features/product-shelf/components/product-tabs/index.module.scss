@@ -1,7 +1,6 @@
 .tabs {
   background: #ffffff;
-  border: 1px solid rgba(34, 34, 34, 0.12);
-  border-radius: 10px;
+  border: 1px solid #dedede;
   display: grid;
   grid-template-columns: repeat(6, minmax(0, 1fr));
   overflow: hidden;
@@ -15,19 +14,20 @@
   display: inline-flex;
   font-family: var(--font-heading);
   font-size: 13px;
-  font-weight: 600;
+  font-weight: 400;
   justify-content: center;
   min-height: 40px;
   padding: 10px 12px;
   text-transform: uppercase;
 
   &:not(:last-child) {
-    border-right: 1px solid rgba(34, 34, 34, 0.12);
+    border-right: 1px solid #dedede;
   }
 }
 
 .tabActive {
   color: var(--color-primary);
+  font-weight: 600;
 }
 
 @media (max-width: 1023px) {

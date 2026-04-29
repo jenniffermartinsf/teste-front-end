@@ -32,6 +32,37 @@ export const SearchIcon = createIcon(
   </>,
 )
 
+export const CompareIcon = createIcon(
+  <>
+    <path
+      d="M7 7h10"
+      stroke="currentColor"
+      strokeLinecap="round"
+      strokeWidth="1.8"
+    />
+    <path
+      d="m13.5 4 3.5 3-3.5 3"
+      stroke="currentColor"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      strokeWidth="1.8"
+    />
+    <path
+      d="M17 17H7"
+      stroke="currentColor"
+      strokeLinecap="round"
+      strokeWidth="1.8"
+    />
+    <path
+      d="m10.5 14-3.5 3 3.5 3"
+      stroke="currentColor"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      strokeWidth="1.8"
+    />
+  </>,
+)
+
 export const HeartIcon = createIcon(
   <path
     d="M12 20.3S4 15.7 4 9.9C4 7.2 6 5 8.7 5c1.6 0 3 0.8 3.8 2.1C13.3 5.8 14.7 5 16.3 5 19 5 21 7.2 21 9.9c0 5.8-8 10.4-8 10.4Z"

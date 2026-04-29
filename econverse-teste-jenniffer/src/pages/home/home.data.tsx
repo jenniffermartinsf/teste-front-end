@@ -1,29 +1,22 @@
 import { assetCatalog } from '@/shared/config/media'
-import type { ComponentType } from 'react'
-import type { SVGProps } from 'react'
-import {
-  CartIcon,
-  CreditCardIcon,
-  CrownIcon,
-  HeartIcon,
-  SearchIcon,
-  ShieldIcon,
-  TruckIcon,
-  UserIcon,
-} from '@/shared/ui/icons'
-
-type IconComponent = ComponentType<SVGProps<SVGSVGElement>>
+import { SearchIcon } from '@/shared/ui/icons'
 
 export interface HeaderBenefit {
-  icon: IconComponent
-  text: string
-  highlightedText?: string
+  iconSrc: string
+  textPrefix?: string
+  highlightedText: string
+  textSuffix?: string
 }
 
 export interface UtilityAction {
-  icon: IconComponent
+  iconSrc: string
   label: string
   badge?: string
+}
+
+export interface MembershipAction {
+  iconSrc: string
+  label: string
 }
 
 export interface CategoryItem {
@@ -48,18 +41,19 @@ export interface FooterColumn {
 
 export const headerBenefits: readonly HeaderBenefit[] = [
   {
-    icon: ShieldIcon,
-    text: 'Compra',
+    iconSrc: assetCatalog.headerIcons.shieldCheck,
+    textPrefix: 'Compra',
     highlightedText: '100% segura',
   },
   {
-    icon: TruckIcon,
-    text: 'Frete grátis acima de',
-    highlightedText: 'R$ 200',
+    iconSrc: assetCatalog.headerIcons.truck,
+    highlightedText: 'Frete grátis',
+    textSuffix: 'acima de R$ 200',
   },
   {
-    icon: CreditCardIcon,
-    text: 'Parcele suas compras',
+    iconSrc: assetCatalog.headerIcons.creditCard,
+    highlightedText: 'Parcele',
+    textSuffix: 'suas compras',
   },
 ] as const
 
@@ -74,19 +68,28 @@ export const primaryNavigation = [
 
 export const utilityActions: readonly UtilityAction[] = [
   {
-    icon: HeartIcon,
+    iconSrc: assetCatalog.headerIcons.compare,
+    label: 'Comparar produtos',
+  },
+  {
+    iconSrc: assetCatalog.headerIcons.heart,
     label: 'Favoritos',
   },
   {
-    icon: UserIcon,
+    iconSrc: assetCatalog.headerIcons.userCircle,
     label: 'Minha conta',
   },
   {
-    icon: CartIcon,
+    iconSrc: assetCatalog.headerIcons.shoppingCart,
     label: 'Carrinho',
     badge: '2',
   },
 ] as const
+
+export const membershipAction: MembershipAction = {
+  iconSrc: assetCatalog.headerIcons.crownSimple,
+  label: 'Assinatura',
+}
 
 export const categoryItems: readonly CategoryItem[] = [
   {
@@ -132,13 +135,13 @@ export const partnerBanners: readonly PartnerBanner[] = [
     id: 'partner-1',
     title: 'Parceiros',
     description: 'Lorem ipsum dolor sit amet, consectetur',
-    imageUrl: assetCatalog.heroBackground,
+    imageUrl: assetCatalog.parceirosBanner,
   },
   {
     id: 'partner-2',
     title: 'Parceiros',
     description: 'Lorem ipsum dolor sit amet, consectetur',
-    imageUrl: assetCatalog.heroBackground,
+    imageUrl: assetCatalog.parceirosBanner,
   },
 ] as const
 
@@ -165,4 +168,3 @@ export const footerColumns: readonly FooterColumn[] = [
 ] as const
 
 export const headerSearchIcon = SearchIcon
-export const membershipIcon = CrownIcon

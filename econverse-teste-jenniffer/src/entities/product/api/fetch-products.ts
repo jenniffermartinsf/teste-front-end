@@ -4,14 +4,13 @@ import {
 } from '../model/product.mappers'
 import type { Product } from '../model/product.types'
 
-const catalogEndpoint =
+const remoteCatalogEndpoint =
   'https://app.econverse.com.br/teste-front-end/junior/tecnologia/lista-produtos/produtos.json'
+const localCatalogEndpoint = '/data/products.json'
 
-export const fetchProducts = async (
-  signal?: AbortSignal,
+const parseProductsResponse = async (
+  response: Response,
 ): Promise<Product[]> => {
-  const response = await fetch(catalogEndpoint, signal ? { signal } : undefined)
-
   if (!response.ok) {
     throw new Error('Não foi possível carregar os produtos.')
   }
@@ -23,4 +22,24 @@ export const fetchProducts = async (
   }
 
   return payload.products.map(mapRawProductToProduct)
+}
+
+export const fetchProducts = async (
+  signal?: AbortSignal,
+): Promise<Product[]> => {
+  const requestInit = signal ? { signal } : undefined
+
+  try {
+    const response = await fetch(remoteCatalogEndpoint, requestInit)
+
+    return await parseProductsResponse(response)
+  } catch (error) {
+    if (signal?.aborted) {
+      throw error
+    }
+  }
+
+  const fallbackResponse = await fetch(localCatalogEndpoint, requestInit)
+
+  return parseProductsResponse(fallbackResponse)
 }
