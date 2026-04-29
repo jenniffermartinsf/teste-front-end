@@ -1,17 +1,17 @@
-export type AsyncIdleState = {
+export interface AsyncIdleState {
   status: 'idle'
 }
 
-export type AsyncLoadingState = {
+export interface AsyncLoadingState {
   status: 'loading'
 }
 
-export type AsyncSuccessState<T> = {
+export interface AsyncSuccessState<T> {
   status: 'success'
   data: T
 }
 
-export type AsyncErrorState = {
+export interface AsyncErrorState {
   status: 'error'
   message: string
 }

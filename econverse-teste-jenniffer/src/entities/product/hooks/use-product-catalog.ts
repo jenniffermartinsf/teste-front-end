@@ -6,7 +6,7 @@ import { fetchProducts } from '../api/fetch-products'
 import type { Product } from '../model/product.types'
 
 const initialState: AsyncState<Product[]> = {
-  status: 'idle',
+  status: 'loading',
 }
 
 export const useProductCatalog = () => {
@@ -15,8 +15,6 @@ export const useProductCatalog = () => {
   const [requestVersion, setRequestVersion] = useState(0)
 
   const loadCatalog = useEffectEvent(async (signal: AbortSignal) => {
-    setCatalogState({ status: 'loading' })
-
     try {
       const products = await fetchProducts(signal)
 
@@ -49,9 +47,11 @@ export const useProductCatalog = () => {
     return () => {
       abortController.abort()
     }
-  }, [loadCatalog, requestVersion])
+  }, [requestVersion])
 
   const retry = (): void => {
+    setCatalogState({ status: 'loading' })
+
     startTransition(() => {
       setRequestVersion((currentVersion) => currentVersion + 1)
     })

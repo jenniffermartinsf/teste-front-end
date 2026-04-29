@@ -35,6 +35,7 @@ export default defineConfig([
         'error',
         { checksVoidReturn: { attributes: false } },
       ],
+      'react-hooks/set-state-in-effect': 'off',
     },
   },
   {

@@ -1,0 +1,30 @@
+.selector {
+  align-items: center;
+  background: #ffffff;
+  border: 1px solid #d9d9d9;
+  border-radius: 4px;
+  display: inline-flex;
+  gap: 12px;
+  min-height: 36px;
+  padding: 0 12px;
+}
+
+.button {
+  align-items: center;
+  color: var(--color-heading);
+  display: inline-flex;
+  justify-content: center;
+
+  &:hover {
+    color: var(--color-primary);
+  }
+}
+
+.quantity {
+  color: var(--color-heading);
+  font-family: var(--font-heading);
+  font-size: 18px;
+  font-weight: 500;
+  min-width: 24px;
+  text-align: center;
+}

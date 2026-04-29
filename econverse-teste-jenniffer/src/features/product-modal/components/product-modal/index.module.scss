@@ -1,0 +1,144 @@
+.overlay {
+  align-items: center;
+  background: rgba(0, 0, 0, 0.38);
+  display: grid;
+  inset: 0;
+  padding: 24px;
+  position: fixed;
+  z-index: 30;
+}
+
+.panel {
+  background: #ffffff;
+  border-radius: 10px;
+  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.18);
+  display: grid;
+  gap: 40px;
+  grid-template-columns: 247px minmax(0, 1fr);
+  margin: 0 auto;
+  max-width: 769px;
+  padding: 56px 52px 50px;
+  position: relative;
+  width: min(100%, 769px);
+}
+
+.closeButton {
+  color: var(--color-text-muted);
+  position: absolute;
+  right: 18px;
+  top: 18px;
+
+  &:hover {
+    color: var(--color-heading);
+    transform: rotate(90deg);
+  }
+}
+
+.media {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+}
+
+.image {
+  height: 192px;
+  object-fit: contain;
+  width: 247px;
+}
+
+.content {
+  display: grid;
+  gap: 32px;
+}
+
+.header {
+  display: grid;
+  gap: 18px;
+}
+
+.title {
+  color: var(--color-text);
+  font-family: var(--font-heading);
+  font-size: 28px;
+  font-weight: 400;
+  letter-spacing: 0.06em;
+  line-height: 1.1;
+  text-transform: uppercase;
+}
+
+.price {
+  color: var(--color-text);
+  font-family: var(--font-heading);
+  font-size: 32px;
+  font-weight: 700;
+}
+
+.descriptionBlock {
+  display: grid;
+  gap: 18px;
+}
+
+.description {
+  color: var(--color-text-muted);
+  font-size: 14px;
+  line-height: 1.5;
+  max-width: 290px;
+}
+
+.detailsLink {
+  color: var(--color-primary);
+  font-family: var(--font-body);
+  font-size: 13px;
+  font-weight: 600;
+  justify-self: flex-start;
+}
+
+.actions {
+  align-items: center;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.actionButton {
+  min-height: 36px;
+  min-width: 188px;
+}
+
+@media (max-width: 767px) {
+  .overlay {
+    padding: 16px;
+  }
+
+  .panel {
+    gap: 24px;
+    grid-template-columns: 1fr;
+    padding: 48px 20px 28px;
+  }
+
+  .media {
+    justify-content: flex-start;
+  }
+
+  .image {
+    height: 160px;
+    width: 200px;
+  }
+
+  .title {
+    font-size: 22px;
+  }
+
+  .price {
+    font-size: 28px;
+  }
+
+  .actions {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .actionButton {
+    width: 100%;
+  }
+}

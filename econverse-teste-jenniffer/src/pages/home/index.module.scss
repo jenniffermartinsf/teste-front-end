@@ -1,0 +1,656 @@
+.page {
+  background: var(--color-background);
+  overflow: clip;
+}
+
+.main {
+  display: grid;
+  gap: 72px;
+  padding-bottom: 90px;
+}
+
+.header {
+  background: #ffffff;
+  border-bottom: 1px solid rgba(34, 34, 34, 0.12);
+  position: sticky;
+  top: 0;
+  z-index: 20;
+}
+
+.headerInner {
+  margin: 0 auto;
+  width: var(--container-width);
+}
+
+.topBar {
+  align-items: center;
+  display: flex;
+  gap: 36px;
+  justify-content: center;
+  min-height: 32px;
+}
+
+.benefit {
+  align-items: center;
+  display: inline-flex;
+  gap: 8px;
+}
+
+.benefitIcon {
+  color: var(--color-primary);
+  flex-shrink: 0;
+}
+
+.benefitText {
+  color: var(--color-text);
+  font-size: 12px;
+  font-weight: 500;
+}
+
+.benefitHighlight {
+  color: var(--color-primary);
+  font-weight: 700;
+}
+
+.mainBar {
+  align-items: center;
+  display: grid;
+  gap: 24px;
+  grid-template-columns: auto minmax(0, 1fr) auto;
+  min-height: 72px;
+}
+
+.logoLink {
+  display: inline-flex;
+}
+
+.logo {
+  height: 41px;
+  width: 139px;
+}
+
+.searchForm {
+  align-items: center;
+  background: var(--color-surface-alt);
+  border-radius: 10px;
+  display: flex;
+  min-height: 48px;
+  padding: 0 16px 0 20px;
+}
+
+.searchInput {
+  background: transparent;
+  border: 0;
+  color: var(--color-text);
+  flex: 1;
+  font-family: var(--font-heading);
+  font-size: 14px;
+  outline: none;
+
+  &::placeholder {
+    color: var(--color-text-subtle);
+  }
+}
+
+.searchButton {
+  align-items: center;
+  color: var(--color-primary);
+  display: inline-flex;
+  justify-content: center;
+}
+
+.utilityBar {
+  display: flex;
+  gap: 14px;
+}
+
+.utilityButton {
+  align-items: center;
+  color: var(--color-heading);
+  display: inline-flex;
+  justify-content: center;
+  min-height: 32px;
+  min-width: 32px;
+  position: relative;
+
+  &:hover {
+    color: var(--color-primary);
+  }
+}
+
+.utilityBadge {
+  align-items: center;
+  background: var(--color-accent);
+  border-radius: 999px;
+  color: var(--color-heading);
+  display: inline-flex;
+  font-family: var(--font-heading);
+  font-size: 11px;
+  font-weight: 700;
+  height: 18px;
+  justify-content: center;
+  min-width: 18px;
+  position: absolute;
+  right: -6px;
+  top: -2px;
+}
+
+.navigationBar {
+  border-top: 1px solid rgba(34, 34, 34, 0.08);
+  min-height: 40px;
+}
+
+.navigationList {
+  align-items: center;
+  display: flex;
+  gap: 28px;
+  min-height: 40px;
+}
+
+.navigationLink,
+.membershipLink {
+  color: var(--color-text);
+  font-family: var(--font-heading);
+  font-size: 14px;
+  font-weight: 500;
+
+  &:hover {
+    color: var(--color-primary);
+  }
+}
+
+.membershipItem {
+  margin-left: auto;
+}
+
+.membershipLink {
+  align-items: center;
+  color: var(--color-primary);
+  display: inline-flex;
+  gap: 8px;
+  font-weight: 700;
+}
+
+.membershipIcon {
+  color: var(--color-accent);
+}
+
+.hero {
+  min-height: 390px;
+  position: relative;
+}
+
+.heroMedia {
+  inset: 0;
+  overflow: hidden;
+  position: absolute;
+}
+
+.heroBackground {
+  height: 100%;
+  object-fit: cover;
+  width: 100%;
+}
+
+.heroOverlay {
+  background: linear-gradient(
+    90deg,
+    rgba(0, 0, 0, 0.68) 0%,
+    rgba(0, 0, 0, 0.48) 32%,
+    rgba(0, 0, 0, 0.12) 100%
+  );
+  inset: 0;
+  position: absolute;
+}
+
+.heroContent {
+  display: grid;
+  gap: 12px;
+  margin: 0 auto;
+  max-width: var(--container-width);
+  padding-top: 78px;
+  position: relative;
+}
+
+.heroEyebrow {
+  color: var(--color-accent);
+  font-family: var(--font-heading);
+  font-size: 28px;
+  font-weight: 700;
+}
+
+.heroTitle {
+  color: #ffffff;
+  font-family: var(--font-heading);
+  font-size: clamp(38px, 5vw, 60px);
+  font-weight: 700;
+  line-height: 1.08;
+  max-width: 560px;
+}
+
+.heroButton {
+  align-items: center;
+  background: var(--color-accent);
+  border-radius: 8px;
+  color: var(--color-heading);
+  display: inline-flex;
+  font-family: var(--font-heading);
+  font-size: 16px;
+  font-weight: 700;
+  justify-content: center;
+  margin-top: 18px;
+  min-height: 50px;
+  padding: 0 40px;
+  width: fit-content;
+
+  &:hover {
+    transform: translateY(-1px);
+  }
+}
+
+.categorySection,
+.partnerSection,
+.brandSection {
+  margin: 0 auto;
+  width: var(--container-width);
+}
+
+.categoryGrid {
+  display: grid;
+  gap: 22px;
+  grid-template-columns: repeat(7, minmax(0, 1fr));
+}
+
+.categoryCard,
+.categoryCardFeatured {
+  align-items: center;
+  background: var(--color-background-muted);
+  border-radius: 10px;
+  box-shadow: 0 4px 11px rgba(0, 0, 0, 0.13);
+  display: grid;
+  gap: 22px;
+  justify-items: center;
+  min-height: 171px;
+  padding: 24px 18px 20px;
+}
+
+.categoryCardFeatured {
+  background: #ffffff;
+}
+
+.categoryMedia {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  min-height: 82px;
+}
+
+.categoryLabel {
+  color: var(--color-text);
+  font-family: var(--font-heading);
+  font-size: 14px;
+  font-weight: 500;
+  text-align: center;
+}
+
+.partnerGrid {
+  display: grid;
+  gap: 14px;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.partnerCard {
+  border-radius: 20px;
+  min-height: 350px;
+  overflow: hidden;
+  position: relative;
+}
+
+.partnerBackground {
+  height: 100%;
+  object-fit: cover;
+  width: 100%;
+}
+
+.partnerOverlay {
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0.16) 0%, rgba(0, 0, 0, 0.76) 100%);
+  inset: 0;
+  position: absolute;
+}
+
+.partnerContent {
+  bottom: 40px;
+  display: grid;
+  gap: 14px;
+  left: 44px;
+  position: absolute;
+}
+
+.partnerTitle {
+  color: #ffffff;
+  font-family: var(--font-heading);
+  font-size: 40px;
+  font-weight: 700;
+}
+
+.partnerDescription {
+  color: #ffffff;
+  font-size: 14px;
+  line-height: 1.4;
+  max-width: 208px;
+}
+
+.partnerButton {
+  align-items: center;
+  background: var(--color-accent);
+  border-radius: 6px;
+  color: var(--color-heading);
+  display: inline-flex;
+  font-family: var(--font-heading);
+  font-size: 12px;
+  font-weight: 700;
+  justify-content: center;
+  min-height: 48px;
+  padding-inline: 26px;
+  text-transform: uppercase;
+  width: fit-content;
+}
+
+.sectionTitle {
+  color: var(--color-primary);
+  font-family: var(--font-heading);
+  font-size: 30px;
+  font-weight: 700;
+  line-height: 1.15;
+  margin-bottom: 32px;
+  text-align: center;
+}
+
+.brandGrid {
+  display: grid;
+  gap: 22px;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+}
+
+.brandCard {
+  align-items: center;
+  background: #ffffff;
+  border-radius: 999px;
+  box-shadow: var(--shadow-brand);
+  display: flex;
+  justify-content: center;
+  min-height: 211px;
+  padding: 24px;
+}
+
+.brandLogo {
+  height: 35px;
+  width: 117px;
+}
+
+.footer {
+  background: var(--color-background-muted);
+}
+
+.newsletterSection {
+  align-items: center;
+  background: var(--color-primary-dark);
+  color: #ffffff;
+  display: grid;
+  gap: 24px;
+  grid-template-columns: 1fr auto;
+  margin: 0 auto;
+  min-height: 162px;
+  padding: 40px 0;
+  width: var(--container-width);
+}
+
+.newsletterCopy {
+  display: grid;
+  gap: 8px;
+}
+
+.newsletterTitle {
+  color: #ffffff;
+  font-family: var(--font-display);
+  font-size: 32px;
+  font-weight: 600;
+}
+
+.newsletterDescription {
+  color: #ffffff;
+  font-size: 14px;
+  line-height: 1.4;
+  max-width: 515px;
+}
+
+.footerContent {
+  align-items: start;
+  display: grid;
+  gap: 36px;
+  grid-template-columns: 354px 1px minmax(0, 1fr);
+  margin: 0 auto;
+  padding: 42px 0;
+  width: var(--container-width);
+}
+
+.footerBrand {
+  display: grid;
+  gap: 18px;
+}
+
+.footerLogo {
+  height: 48px;
+  width: 164px;
+}
+
+.footerText,
+.footerBottom {
+  color: var(--color-text);
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.socialLinks {
+  display: flex;
+  gap: 18px;
+}
+
+.socialLink {
+  align-items: center;
+  display: inline-flex;
+  justify-content: center;
+}
+
+.footerDivider {
+  background: rgba(34, 34, 34, 0.12);
+  min-height: 100%;
+}
+
+.footerColumns {
+  display: grid;
+  gap: 42px;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.footerColumn {
+  display: grid;
+  gap: 20px;
+}
+
+.footerColumnTitle {
+  color: rgba(34, 34, 34, 0.71);
+  font-family: var(--font-heading);
+  font-size: 16px;
+  font-weight: 700;
+}
+
+.footerList {
+  display: grid;
+  gap: 16px;
+}
+
+.footerLink {
+  color: rgba(34, 34, 34, 0.71);
+  font-size: 14px;
+
+  &:hover {
+    color: var(--color-primary);
+  }
+}
+
+.footerBottom {
+  background: #ffffff;
+  font-size: 13px;
+  padding: 14px 24px;
+  text-align: center;
+}
+
+@media (max-width: 1199px) {
+  .categoryGrid {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+
+  .brandGrid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .newsletterSection {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 1023px) {
+  .main {
+    gap: 56px;
+  }
+
+  .topBar {
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    min-height: auto;
+    padding: 10px 0;
+  }
+
+  .mainBar {
+    gap: 16px;
+    grid-template-columns: 1fr;
+    padding: 18px 0;
+  }
+
+  .logoLink {
+    justify-self: center;
+  }
+
+  .utilityBar {
+    justify-content: center;
+  }
+
+  .navigationList {
+    flex-wrap: wrap;
+    gap: 14px 20px;
+    justify-content: center;
+    padding: 12px 0;
+  }
+
+  .membershipItem {
+    margin-left: 0;
+  }
+
+  .partnerGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .footerContent {
+    gap: 28px;
+    grid-template-columns: 1fr;
+  }
+
+  .footerDivider {
+    display: none;
+  }
+
+  .footerColumns {
+    gap: 24px;
+  }
+}
+
+@media (max-width: 767px) {
+  .main {
+    gap: 48px;
+    padding-bottom: 72px;
+  }
+
+  .topBar {
+    gap: 8px 18px;
+  }
+
+  .benefit {
+    width: 100%;
+  }
+
+  .hero {
+    min-height: 420px;
+  }
+
+  .heroContent {
+    padding-top: 64px;
+  }
+
+  .heroEyebrow {
+    font-size: 22px;
+  }
+
+  .heroTitle {
+    max-width: 320px;
+  }
+
+  .heroButton {
+    min-height: 46px;
+    padding-inline: 28px;
+  }
+
+  .categoryGrid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .categoryCard,
+  .categoryCardFeatured {
+    min-height: 150px;
+    padding: 18px 14px;
+  }
+
+  .partnerCard {
+    min-height: 300px;
+  }
+
+  .partnerContent {
+    bottom: 28px;
+    left: 24px;
+  }
+
+  .partnerTitle {
+    font-size: 34px;
+  }
+
+  .sectionTitle {
+    font-size: 26px;
+    margin-bottom: 24px;
+  }
+
+  .brandGrid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .brandCard {
+    min-height: 160px;
+  }
+
+  .newsletterTitle {
+    font-size: 28px;
+  }
+
+  .footerColumns {
+    grid-template-columns: 1fr;
+  }
+}

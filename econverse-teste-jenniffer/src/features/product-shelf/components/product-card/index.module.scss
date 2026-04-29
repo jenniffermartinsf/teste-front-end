@@ -1,0 +1,93 @@
+.card {
+  background: var(--color-surface);
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  border-radius: var(--radius-card);
+  box-shadow: var(--shadow-soft);
+  display: grid;
+  gap: 14px;
+  min-height: 500px;
+  padding: 17px 14px 18px;
+
+  &:hover {
+    box-shadow: var(--shadow-card);
+    transform: translateY(-2px);
+  }
+}
+
+.mediaButton,
+.titleButton {
+  text-align: left;
+}
+
+.media {
+  align-items: center;
+  background: linear-gradient(180deg, #ffffff 0%, #f5f5f5 100%);
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  min-height: 240px;
+  overflow: hidden;
+  padding: 10px;
+}
+
+.image {
+  height: 228px;
+  object-fit: contain;
+  width: 100%;
+}
+
+.content {
+  display: grid;
+  gap: 12px;
+}
+
+.titleButton {
+  color: var(--color-text);
+  font-family: var(--font-body);
+  font-size: 13px;
+  font-weight: 500;
+  line-height: 1.45;
+  min-height: 56px;
+
+  &:hover {
+    color: var(--color-primary);
+  }
+}
+
+.pricing {
+  display: grid;
+  gap: 5px;
+}
+
+.originalPrice {
+  color: var(--color-text-muted);
+  font-family: var(--font-heading);
+  font-size: 14px;
+  text-decoration: line-through;
+}
+
+.currentPrice {
+  color: var(--color-text);
+  font-family: var(--font-heading);
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.installment,
+.shippingLabel {
+  color: var(--color-text-muted);
+  font-family: var(--font-body);
+  font-size: 12px;
+  line-height: 1.4;
+}
+
+.shippingLabel {
+  color: var(--color-success);
+  font-weight: 600;
+}
+
+.action {
+  align-self: end;
+  min-height: 44px;
+}
