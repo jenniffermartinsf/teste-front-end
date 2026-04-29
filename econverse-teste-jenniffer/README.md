@@ -16,7 +16,7 @@ Implementação do teste prático de Front-End da Econverse em React, TypeScript
 
 ## Arquitetura
 
-O projeto foi reorganizado dentro de `src` com separação clara de responsabilidades:
+O projeto foi organizado dentro de `src` com separação clara de responsabilidades:
 
 - `pages/home`: composição da página
 - `features/product-shelf`: vitrine, abas e carrossel
@@ -35,6 +35,20 @@ O projeto foi reorganizado dentro de `src` com separação clara de responsabili
 - Acessibilidade básica
 - ESLint e Prettier configurados
 - Testes de regra de negócio, hook e componentes críticos
+
+## Screenshots
+
+<img src="./docs/screenshots/ec1.png" alt="Screenshot 1" />
+
+<img src="./docs/screenshots/ec2.png" alt="Screenshot 2" />
+
+<img src="./docs/screenshots/ec3.png" alt="Screenshot 3" />
+
+<img src="./docs/screenshots/ec4.png" alt="Screenshot 4" />
+
+<img src="./docs/screenshots/ec5.png" alt="Screenshot 5" />
+
+<img src="./docs/screenshots/ec6.png" alt="Screenshot 6" />
 
 ## Como rodar
 
