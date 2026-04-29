@@ -1,9 +1,6 @@
 import { useEffect } from 'react'
 
-export const useEscapeKey = (
-  enabled: boolean,
-  onEscape: () => void,
-): void => {
+export const useEscapeKey = (enabled: boolean, onEscape: () => void): void => {
   useEffect(() => {
     if (!enabled) {
       return

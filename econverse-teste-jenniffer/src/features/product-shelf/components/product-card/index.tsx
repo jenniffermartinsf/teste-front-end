@@ -9,10 +9,7 @@ interface ProductCardProps {
   onSelectProduct: (product: Product) => void
 }
 
-export const ProductCard = ({
-  product,
-  onSelectProduct,
-}: ProductCardProps) => {
+export const ProductCard = ({ product, onSelectProduct }: ProductCardProps) => {
   const handleSelectProduct = (): void => {
     onSelectProduct(product)
   }
@@ -37,7 +34,11 @@ export const ProductCard = ({
         </div>
       </button>
       <div className={styles.content}>
-        <button className={styles.titleButton} onClick={handleSelectProduct} type="button">
+        <button
+          className={styles.titleButton}
+          onClick={handleSelectProduct}
+          type="button"
+        >
           {product.description}
         </button>
         <div className={styles.pricing}>
@@ -51,7 +52,9 @@ export const ProductCard = ({
             ou {product.pricing.installmentCount}x de{' '}
             {formatCurrency(product.pricing.installmentValue)} sem juros
           </span>
-          <span className={styles.shippingLabel}>{product.pricing.shippingLabel}</span>
+          <span className={styles.shippingLabel}>
+            {product.pricing.shippingLabel}
+          </span>
         </div>
       </div>
       <Button

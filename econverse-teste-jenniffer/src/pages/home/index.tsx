@@ -53,7 +53,10 @@ const HeaderSection = () => {
       <div className={styles.headerInner}>
         <div className={styles.topBar}>
           {headerBenefits.map(({ icon: Icon, text, highlightedText }) => (
-            <div className={styles.benefit} key={`${text}-${highlightedText ?? 'default'}`}>
+            <div
+              className={styles.benefit}
+              key={`${text}-${highlightedText ?? 'default'}`}
+            >
               <Icon className={styles.benefitIcon} />
               <span className={styles.benefitText}>
                 {text}{' '}
@@ -68,16 +71,28 @@ const HeaderSection = () => {
         </div>
         <div className={styles.mainBar}>
           <a className={styles.logoLink} href="#home">
-            <img alt="Econverse" className={styles.logo} src={assetCatalog.logo} />
+            <img
+              alt="Econverse"
+              className={styles.logo}
+              src={assetCatalog.logo}
+            />
           </a>
-          <form className={styles.searchForm} onSubmit={handleSearchSubmit} role="search">
+          <form
+            className={styles.searchForm}
+            onSubmit={handleSearchSubmit}
+            role="search"
+          >
             <input
               aria-label="Buscar produtos"
               className={styles.searchInput}
               placeholder="O que você está buscando?"
               type="search"
             />
-            <button aria-label="Buscar" className={styles.searchButton} type="submit">
+            <button
+              aria-label="Buscar"
+              className={styles.searchButton}
+              type="submit"
+            >
               <SearchIcon />
             </button>
           </form>
@@ -90,16 +105,24 @@ const HeaderSection = () => {
                 type="button"
               >
                 <Icon />
-                {badge ? <span className={styles.utilityBadge}>{badge}</span> : null}
+                {badge ? (
+                  <span className={styles.utilityBadge}>{badge}</span>
+                ) : null}
               </button>
             ))}
           </div>
         </div>
-        <nav aria-label="Categorias principais" className={styles.navigationBar}>
+        <nav
+          aria-label="Categorias principais"
+          className={styles.navigationBar}
+        >
           <ul className={styles.navigationList}>
             {primaryNavigation.map((item) => (
               <li key={item}>
-                <a className={styles.navigationLink} href="#produtos-relacionados">
+                <a
+                  className={styles.navigationLink}
+                  href="#produtos-relacionados"
+                >
                   {item}
                 </a>
               </li>
@@ -132,7 +155,11 @@ const HeroSection = ({ onPrimaryAction }: { onPrimaryAction: () => void }) => (
     <div className={styles.heroContent}>
       <p className={styles.heroEyebrow}>50% Off nos produtos</p>
       <h1 className={styles.heroTitle}>Venha conhecer nossas promoções</h1>
-      <button className={styles.heroButton} onClick={onPrimaryAction} type="button">
+      <button
+        className={styles.heroButton}
+        onClick={onPrimaryAction}
+        type="button"
+      >
         Ver produto
       </button>
     </div>
@@ -144,7 +171,9 @@ const CategorySection = () => (
     <div className={styles.categoryGrid}>
       {categoryItems.map((item) => (
         <article
-          className={item.featured ? styles.categoryCardFeatured : styles.categoryCard}
+          className={
+            item.featured ? styles.categoryCardFeatured : styles.categoryCard
+          }
           key={item.id}
         >
           <div className={styles.categoryMedia}>
@@ -189,7 +218,11 @@ const BrandShowcaseSection = () => (
     <div className={styles.brandGrid}>
       {Array.from({ length: 5 }, (_, index) => (
         <article className={styles.brandCard} key={index}>
-          <img alt="Econverse" className={styles.brandLogo} src={assetCatalog.logo} />
+          <img
+            alt="Econverse"
+            className={styles.brandLogo}
+            src={assetCatalog.logo}
+          />
         </article>
       ))}
     </div>
@@ -200,17 +233,23 @@ const FooterSection = () => (
   <footer className={styles.footer}>
     <section className={styles.newsletterSection} id="newsletter">
       <div className={styles.newsletterCopy}>
-        <h2 className={styles.newsletterTitle}>Inscreva-se na nossa newsletter</h2>
+        <h2 className={styles.newsletterTitle}>
+          Inscreva-se na nossa newsletter
+        </h2>
         <p className={styles.newsletterDescription}>
-          Assine a nossa newsletter e receba as novidades e conteúdos exclusivos da
-          Econverse.
+          Assine a nossa newsletter e receba as novidades e conteúdos exclusivos
+          da Econverse.
         </p>
       </div>
       <NewsletterForm />
     </section>
     <section className={styles.footerContent}>
       <div className={styles.footerBrand}>
-        <img alt="Econverse" className={styles.footerLogo} src={assetCatalog.logo} />
+        <img
+          alt="Econverse"
+          className={styles.footerLogo}
+          src={assetCatalog.logo}
+        />
         <p className={styles.footerText}>
           Lorem ipsum dolor sit amet, consectetur adipiscing elit.
         </p>

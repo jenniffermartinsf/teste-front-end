@@ -6,8 +6,9 @@ import styles from './index.module.scss'
 
 type ButtonVariant = 'primary' | 'secondary' | 'ghost'
 
-interface ButtonProps
-  extends PropsWithChildren<ButtonHTMLAttributes<HTMLButtonElement>> {
+interface ButtonProps extends PropsWithChildren<
+  ButtonHTMLAttributes<HTMLButtonElement>
+> {
   variant?: ButtonVariant
   fullWidth?: boolean
 }

@@ -1,31 +1,88 @@
-# Teste Econverse: Vaga Desenvolvedor Front-End
+# Teste Econverse
 
-### Vem ser #Econverse!
+Implementação do teste prático de Front-End da Econverse em React, TypeScript e Sass, com arquitetura `feature-first`, tipagem estrita, responsividade, acessibilidade básica e cobertura de testes com Vitest.
 
-Segue abaixo as instruções para a execução do teste.
+## Stack
 
-## Instruções
-- Faça um fork desse projeto para a sua conta pessoal do GitHub.
-- Desenvolva a página conforme as **Especificações Técnicas** 
-- Crie um README com as instruções para compilar, testar e rodar o projeto.
-- O link do repositório deverá ser enviado para o e-mail julia.gardiano@econverse.com.br com o título **Teste Vaga FrontEnd**
+- React 19
+- TypeScript 6
+- Vite 8
+- Sass
+- ESLint
+- Prettier
+- Vitest
+- React Testing Library
+- vitest-axe
 
-## Especificações Técnicas
-- Desenvolver a pagina em React e TypeScript conforme o [layout](https://www.figma.com/file/rWnzPeoxgynuNPsJjV0VmV/Teste-Front-End-Jr?node-id=0%3A1). Para conseguir pegar os elementos do Figma, basta copiar o layout para sua conta que terá acesso de edição.
-- Montar a [vitrine](https://app.econverse.com.br/teste-front-end/junior/tecnologia/layout/vitrine-produtos.png) de produtos consumindo as informações dos produtos em json atraves desse [Link](https://app.econverse.com.br/teste-front-end/junior/tecnologia/lista-produtos/produtos.json).
-- Desenvolver a interação ao clicar em um produto conforme layout. A interação consiste em abrir um modal com as principais informações do produto presente no arquivo [JSON](https://app.econverse.com.br/teste-front-end/junior/tecnologia/lista-produtos/produtos.json) conforme o produto que clicar.
-- Utilizar Pré-processador Sass, Less ou Stylus.
-- Respeitar o Layout pixel a pixel, tamanho das fontes, cores e botões.
-- Não Utilizar bibliotecas UI como Bootstrap, Foundation, ou afins.
+## Arquitetura
 
-## Pontos Extras
-- Utilizar Boas práticas de SEO
-- Uso de HTML semântico
+O projeto foi reorganizado dentro de `src` com separação clara de responsabilidades:
 
-## O que avaliaremos em seu teste
-- Organização do projeto
-- Lógica do código
-- Componentização
-- Alcance dos objetivos propostos
+- `pages/home`: composição da página
+- `features/product-shelf`: vitrine, abas e carrossel
+- `features/product-modal`: modal do produto e seletor de quantidade
+- `features/newsletter`: formulário e validação da newsletter
+- `entities/product`: tipos, mapeamento, curadoria e consumo do catálogo
+- `shared`: estilos globais, utilitários, assets e componentes reutilizáveis
 
-**Boa sorte! ;)**
+## Requisitos atendidos
+
+- Tipagem estrita
+- Zero `any`
+- Componentes bem separados
+- Estados de `loading` e `error`
+- Layout responsivo para desktop, tablet e mobile
+- Acessibilidade básica
+- ESLint e Prettier configurados
+- Testes de regra de negócio, hook e componentes críticos
+
+## Como rodar
+
+1. Instale as dependências:
+
+```bash
+npm install
+```
+
+2. Inicie o servidor de desenvolvimento:
+
+```bash
+npm run dev
+```
+
+3. Acesse a URL exibida no terminal.
+
+## Scripts disponíveis
+
+```bash
+npm run dev
+npm run build
+npm run preview
+npm run lint
+npm run format
+npm run format:check
+npm test
+npm run test:watch
+npm run test:coverage
+```
+
+## Validação de qualidade
+
+Antes da entrega, os principais checks esperados são:
+
+```bash
+npm run format:check
+npm run lint
+npm test
+npm run build
+```
+
+## Catálogo e assets
+
+- O catálogo é consumido do endpoint JSON fornecido pela Econverse.
+- Os assets visuais principais do Figma foram internalizados em `src/assets/econverse` para evitar dependência de URLs temporárias.
+
+## Observações
+
+- A curadoria das abas da vitrine é feita no front-end, porque o feed não fornece categorias reais.
+- Campos visuais ausentes no JSON, como preço riscado e parcelamento, foram derivados de forma determinística para sustentar o layout.

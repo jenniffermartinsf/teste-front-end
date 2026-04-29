@@ -1,6 +1,10 @@
 import { assetCatalog } from '@/shared/config/media'
 
-import type { Product, ProductApiResponse, RawProductDTO } from './product.types'
+import type {
+  Product,
+  ProductApiResponse,
+  RawProductDTO,
+} from './product.types'
 
 const createProductId = (name: string, index: number): string =>
   `${name.toLowerCase().replace(/[^a-z0-9]+/g, '-')}-${String(index + 1)}`

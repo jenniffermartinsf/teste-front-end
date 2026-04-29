@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from 'react'
+import { useEffect, useId, useRef, useState } from 'react'
 import type { MouseEvent } from 'react'
 
 import type { Product } from '@/entities/product/model/product.types'
@@ -25,6 +25,7 @@ export const ProductModal = ({ product, onClose }: ProductModalProps) => {
   const containerReference = useRef<HTMLDivElement | null>(null)
   const previousActiveElement = useRef<HTMLElement | null>(null)
   const isOpen = Boolean(product)
+  const titleId = useId()
 
   useBodyScrollLock(isOpen)
   useEscapeKey(isOpen, onClose)
@@ -43,7 +44,9 @@ export const ProductModal = ({ product, onClose }: ProductModalProps) => {
       }
 
       const focusableElements = Array.from(
-        containerReference.current.querySelectorAll<HTMLElement>(focusableSelector),
+        containerReference.current.querySelectorAll<HTMLElement>(
+          focusableSelector,
+        ),
       )
 
       const firstElement = focusableElements[0]
@@ -92,6 +95,7 @@ export const ProductModal = ({ product, onClose }: ProductModalProps) => {
 
   return (
     <div
+      aria-labelledby={titleId}
       aria-modal="true"
       className={styles.overlay}
       onClick={handleOverlayClick}
@@ -118,7 +122,9 @@ export const ProductModal = ({ product, onClose }: ProductModalProps) => {
         </div>
         <div className={styles.content}>
           <div className={styles.header}>
-            <h2 className={styles.title}>{product.name}</h2>
+            <h2 className={styles.title} id={titleId}>
+              {product.name}
+            </h2>
             <strong className={styles.price}>
               {formatCurrency(product.pricing.current)}
             </strong>

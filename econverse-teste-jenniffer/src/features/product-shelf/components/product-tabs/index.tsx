@@ -1,4 +1,7 @@
-import type { ProductShelfTab, ProductShelfTabId } from '@/entities/product/model/product.types'
+import type {
+  ProductShelfTab,
+  ProductShelfTabId,
+} from '@/entities/product/model/product.types'
 import { classNames } from '@/shared/lib/class-names'
 
 import styles from './index.module.scss'
@@ -14,7 +17,11 @@ export const ProductTabs = ({
   tabs,
   onTabChange,
 }: ProductTabsProps) => (
-  <div className={styles.tabs} role="tablist" aria-label="Categorias da vitrine">
+  <div
+    className={styles.tabs}
+    role="tablist"
+    aria-label="Categorias da vitrine"
+  >
     {tabs.map((tab) => (
       <button
         aria-selected={tab.id === activeTabId}

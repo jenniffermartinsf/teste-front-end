@@ -2,15 +2,15 @@ import { useState } from 'react'
 
 import { getProductsByTab } from '@/entities/product/model/product.curation'
 import { productShelfTabs } from '@/entities/product/model/product.constants'
-import type { Product, ProductShelfTabId } from '@/entities/product/model/product.types'
+import type {
+  Product,
+  ProductShelfTabId,
+} from '@/entities/product/model/product.types'
 import { classNames } from '@/shared/lib/class-names'
 import { useBreakpointValue } from '@/shared/lib/hooks/use-breakpoint-value'
 import type { AsyncState } from '@/shared/types/async-state'
 import { Button } from '@/shared/ui/button'
-import {
-  ChevronLeftIcon,
-  ChevronRightIcon,
-} from '@/shared/ui/icons'
+import { ChevronLeftIcon, ChevronRightIcon } from '@/shared/ui/icons'
 import { StatusPanel } from '@/shared/ui/status-panel'
 
 import {
@@ -55,7 +55,8 @@ export const ProductShelf = ({
   const compactViewport = isCompactShelfViewport(viewportWidth)
   const pagedShelfSize = getPagedShelfSize(viewportWidth)
   const defaultTabId: ProductShelfTabId = showTabs ? 'cellphones' : 'all'
-  const [activeTabId, setActiveTabId] = useState<ProductShelfTabId>(defaultTabId)
+  const [activeTabId, setActiveTabId] =
+    useState<ProductShelfTabId>(defaultTabId)
   const [currentPage, setCurrentPage] = useState(0)
 
   const products =
@@ -103,7 +104,11 @@ export const ProductShelf = ({
         <span className={styles.rule} />
         <div className={styles.titleGroup}>
           <h2 className={styles.title}>{title}</h2>
-          <button className={styles.viewAll} onClick={handleViewAll} type="button">
+          <button
+            className={styles.viewAll}
+            onClick={handleViewAll}
+            type="button"
+          >
             Ver todos
           </button>
         </div>

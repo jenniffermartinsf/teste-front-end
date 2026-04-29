@@ -74,7 +74,9 @@ export const NewsletterForm = () => {
             placeholder="Digite seu nome"
             value={values.name}
           />
-          {errors.name ? <span className={styles.error}>{errors.name}</span> : null}
+          {errors.name ? (
+            <span className={styles.error}>{errors.name}</span>
+          ) : null}
         </div>
         <div className={styles.fieldGroup}>
           <label className={styles.label} htmlFor="newsletter-email">

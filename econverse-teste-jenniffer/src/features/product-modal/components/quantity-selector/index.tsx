@@ -1,7 +1,4 @@
-import {
-  MinusIcon,
-  PlusIcon,
-} from '@/shared/ui/icons'
+import { MinusIcon, PlusIcon } from '@/shared/ui/icons'
 
 import styles from './index.module.scss'
 
@@ -25,7 +22,9 @@ export const QuantitySelector = ({
     >
       <MinusIcon />
     </button>
-    <span className={styles.quantity}>{quantity.toString().padStart(2, '0')}</span>
+    <span className={styles.quantity}>
+      {quantity.toString().padStart(2, '0')}
+    </span>
     <button
       aria-label="Aumentar quantidade"
       className={styles.button}

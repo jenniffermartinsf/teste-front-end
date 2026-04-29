@@ -156,7 +156,11 @@ export const footerColumns: readonly FooterColumn[] = [
   {
     id: 'terms',
     title: 'Termos',
-    links: ['Termos e Condições', 'Política de Privacidade', 'Troca e Devolução'],
+    links: [
+      'Termos e Condições',
+      'Política de Privacidade',
+      'Troca e Devolução',
+    ],
   },
 ] as const
 
